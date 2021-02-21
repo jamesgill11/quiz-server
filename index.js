@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const apiRouter = require("../Quiz-server/routes/api.router");
+const apiRouter = require("./routes/api.router");
 const {
   customErrorHandler,
   PSQLErrorHandler,
