@@ -17,7 +17,6 @@ exports.getSingleQuestion = (req, res, next) => {
   const { id } = req.params;
   fetchQuestion(id)
     .then((question) => {
-      console.log(question);
       res.send({ question });
     })
     .catch(next);

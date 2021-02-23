@@ -9,7 +9,7 @@ exports.customErrorHandler = (err, req, res, next) => {
 exports.PSQLErrorHandler = (err, req, res, next) => {
   if (err.code) {
     const psqlErrors = {
-      23503: { status: 404, msg: "404 Error: Child not found" },
+      23503: { status: 404, msg: "404 Error: question not found" },
       "22P02": { status: 400, msg: "400 - Bad Request" },
       "42P01": { status: 404, msg: "Relation does not exist" },
       42702: { status: 404, msg: "Answer Is Ambiguous" },

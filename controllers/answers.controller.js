@@ -16,7 +16,6 @@ exports.getSingleQuestionAnswers = (req, res, next) => {
   console.log(questions_id);
   fetchSingleQuestionAnswers(questions_id)
     .then((answer) => {
-      console.log(answer);
       res.send(answer);
     })
     .catch(next);
