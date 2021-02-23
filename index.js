@@ -14,6 +14,9 @@ app.use(express.json());
 
 app.use("/api", apiRouter);
 
+app.use("/favicon.ico", (req, res, next) => {
+  next({ status: 404, msg: "Favicon not found" });
+});
 app.all("/*", (req, res, next) => {
   // res.status(404).send({ msg: "404 Error: Path Not found" });
   next({ status: 404, msg: "Route not found" });
