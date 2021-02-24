@@ -1,6 +1,6 @@
 module.exports = [
   {
-    question_id: 1,
+    id: 1,
     a: "Mercury",
 
     b: "Venus",
@@ -11,7 +11,7 @@ module.exports = [
   },
 
   {
-    question_id: 2,
+    id: 2,
     a: "Monday",
 
     b: "Tuesday",
@@ -22,7 +22,7 @@ module.exports = [
   },
 
   {
-    question_id: 3,
+    id: 3,
     a: "4",
 
     b: "8",
@@ -33,7 +33,7 @@ module.exports = [
   },
 
   {
-    question_id: 4,
+    id: 4,
     a: "red",
 
     b: "green",

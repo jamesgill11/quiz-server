@@ -24,9 +24,10 @@ exports.getSingleQuestion = (req, res, next) => {
 
 exports.getSingleQuestionsWithAnswers = (req, res, next) => {
   const { id } = req.params;
+
   fetchQwithAs(id)
     .then((question) => {
-      res.send({ question });
+      res.send(question);
     })
     .catch(next);
 };

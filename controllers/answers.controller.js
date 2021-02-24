@@ -13,7 +13,7 @@ exports.getAllAnswers = (req, res, next) => {
 
 exports.getSingleQuestionAnswers = (req, res, next) => {
   const { questions_id } = req.params;
-  console.log(questions_id);
+
   fetchSingleQuestionAnswers(questions_id)
     .then((answer) => {
       res.send(answer);

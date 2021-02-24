@@ -24,9 +24,10 @@ exports.fetchQwithAs = (id) => {
   return db
     .select("question", "answers.a", "answers.b", "answers.c", "answers.d")
     .from("questions")
-    .where("answers.question_id", id)
-    .leftJoin("answers", "questions.id", "answers.question_id")
+    .where("answers.id", id)
+    .leftJoin("answers", "questions.id", "answers.id")
     .then((res) => {
+      console.log(res);
       if (res.length === 0) {
         return Promise.reject({ status: 400, msg: "Bad Request" });
       } else {
