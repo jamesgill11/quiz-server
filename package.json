@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "image": "heroku/nodejs",
   "scripts": {
     "setup-dbs": "psql -f ./db/setup.sql",
     "seed": "knex seed:run",
