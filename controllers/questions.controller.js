@@ -27,7 +27,7 @@ exports.getSingleQuestionsWithAnswers = (req, res, next) => {
 
   fetchQwithAs(id)
     .then((question) => {
-      res.send(question);
+      res.send({ question });
     })
     .catch(next);
 };
@@ -36,7 +36,7 @@ exports.getQuestionWithCorrectAnswer = (req, res, next) => {
   const { id } = req.params;
   fetchQwithCorrectA(id)
     .then((question) => {
-      res.send(question);
+      res.send({ question });
     })
     .catch(next);
 };

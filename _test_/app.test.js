@@ -48,11 +48,11 @@ describe("/api", () => {
         .expect(200)
         .then((res) => {
           const { question, a, b, c, d } = res.body;
-          expect(question).toBe("What day of the week is it?");
-          expect(a).toBe("Monday");
-          expect(b).toBe("Tuesday");
-          expect(c).toBe("Saturday");
-          expect(d).toBe("Sunday");
+          expect(question.question).toBe("What day of the week is it?");
+          expect(question.a).toBe("Monday");
+          expect(question.b).toBe("Tuesday");
+          expect(question.c).toBe("Saturday");
+          expect(question.d).toBe("Sunday");
         });
     });
   });
@@ -62,10 +62,12 @@ describe("/api", () => {
         .get("/api/questions/3/correct")
         .expect(200)
         .then((res) => {
-          const { question } = res.body;
-          const { correctAnswer } = res.body;
-          expect(question).toBe("How many letters in the word SunShine");
-          expect(correctAnswer).toBe("8");
+          console.log(res.body);
+
+          expect(res.body.question[0].question).toBe(
+            "How many letters in the word SunShine"
+          );
+          expect(res.body.question[0].correctAnswer).toBe("8");
         });
     });
   });

@@ -27,7 +27,6 @@ exports.fetchQwithAs = (id) => {
     .where("answers.id", id)
     .leftJoin("answers", "questions.id", "answers.id")
     .then((res) => {
-      console.log(res);
       if (res.length === 0) {
         return Promise.reject({ status: 400, msg: "Bad Request" });
       } else {
@@ -45,8 +44,6 @@ exports.fetchQwithCorrectA = (id) => {
     .where("correct.correct_question_id", id)
     .leftJoin("correct", "questions.id", "correct.correct_question_id")
     .then((res) => {
-      const [question] = res;
-
-      return question;
+      return res;
     });
 };
