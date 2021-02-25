@@ -23,7 +23,7 @@ const customConfig = {
   },
   production: {
     connection: {
-      connectionString: process.env.DATABASE_URL,
+      connectionString: DB_URL,
       ssl: {
         rejectUnauthorized: false,
       },
