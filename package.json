@@ -1,6 +1,9 @@
 {
   "name": "quiz-server",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.16.1"
+  },
   "description": "",
   "main": "index.js",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
