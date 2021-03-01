@@ -4,7 +4,7 @@ const app = express();
 const apiRouter = require("./routes/api.router");
 const {
   customErrorHandler,
-  PSQLErrorHandler,
+  handlePSQLErrors,
   handle405Errors,
   handleServerErrors,
 } = require("./error_handlers/index");
@@ -24,7 +24,7 @@ app.use("*", (req, res, next) => {
 });
 
 app.use(customErrorHandler);
-app.use(PSQLErrorHandler);
+app.use(handlePSQLErrors);
 app.use(handle405Errors);
 app.use(handleServerErrors);
 
