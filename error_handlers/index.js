@@ -17,7 +17,7 @@ exports.PSQLErrorHandler = (err, req, res, next) => {
       23502: { status: 404, msg: "404 Error: Not Found" },
     };
     res
-      .status(psqlErrors[err.code].status)
+      // .status(psqlErrors[err.code].status)
       .send({ msg: psqlErrors[err.code].msg });
   } else next(err);
 };
