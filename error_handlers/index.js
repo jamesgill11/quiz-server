@@ -19,7 +19,6 @@ exports.customErrorHandler = (err, req, res, next) => {
 
 //     res.status(psqlErrors[err.code]).send({ msg: psqlErrors[err.code] });
 //   } else next(err);
-// };
 
 exports.handlePSQLErrors = (err, req, res, next) => {
   const psqlCodes = ["22P02", "42703"];
