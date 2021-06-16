@@ -4,6 +4,7 @@ exports.up = function (knex) {
     usersTable.string("user_firstName").notNullable();
     usersTable.string("user_lastName").notNullable();
     usersTable.string("user_password").notNullable();
+    usersTable.integer("user_score").defaultsTo(0);
   });
 };
 
