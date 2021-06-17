@@ -116,6 +116,7 @@ describe("/api", () => {
               "user_firstName",
               "user_lastName",
               "user_password",
+              "user_score",
             ]);
           });
         });
@@ -138,15 +139,7 @@ describe("/api", () => {
           expect(user.user_password).toBe("dddddd");
         });
     });
-    // it("400 Bad Request, Post Error, missing a field", () => {
-    //   return request(app)
-    //     .post("/api/register")
-    //     .expect(400)
-    //     .then((res) => {
-    //       expect(res.body.msg).toBe("400 - Bad Request");
-    //       expect(res.status).toBe(400);
-    //     });
-    // });
+
     it("204 DELETE user by email", () => {
       return request(app)
         .delete("/api/register/a@outlook.com")
@@ -212,6 +205,21 @@ describe("/api", () => {
         .then((res) => {
           expect(res.body.msg).toBe("404 Error: Not Found");
           expect(res.status).toBe(404);
+        });
+    });
+  });
+  describe("/api/correct", () => {
+    it("200 GET returns all question id's with the correct answers", () => {
+      return request(app)
+        .get("/api/correct")
+        .expect(200)
+        .then((res) => {
+          res.body.correctAnswer.forEach((correct) => {
+            expect(Object.keys(correct)).toEqual([
+              "correctAnswer",
+              "correct_question_id",
+            ]);
+          });
         });
     });
   });

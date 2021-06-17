@@ -1,82 +1,82 @@
 module.exports = [
   {
     correct_question_id: 1,
-    correctAnswer: "Mikel Arteta",
+    correctAnswer: "a",
   },
   {
     correct_question_id: 2,
-    correctAnswer: "Nigel Pearson",
+    correctAnswer: "b",
   },
   {
     correct_question_id: 3,
-    correctAnswer: "Quique Setien",
+    correctAnswer: "a",
   },
   {
     correct_question_id: 4,
-    correctAnswer: "1-1 draw vs Manchester City",
+    correctAnswer: "b",
   },
   {
     correct_question_id: 5,
-    correctAnswer: "Schalke",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 6,
-    correctAnswer: "ADO Den Haag",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 7,
-    correctAnswer: "Kai Havertz",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 8,
-    correctAnswer: "Villareal",
+    correctAnswer: "b",
   },
   {
     correct_question_id: 9,
-    correctAnswer: "Weston Mckennie",
+    correctAnswer: "b",
   },
   {
     correct_question_id: 10,
-    correctAnswer: "£27.3m",
+    correctAnswer: "d",
   },
   {
     correct_question_id: 11,
-    correctAnswer: "Benfica",
+    correctAnswer: "b",
   },
   {
     correct_question_id: 12,
-    correctAnswer: "lisbon",
+    correctAnswer: "a",
   },
   {
     correct_question_id: 13,
-    correctAnswer: "Lyon",
+    correctAnswer: "d",
   },
   {
     correct_question_id: 14,
-    correctAnswer: "Eric Maxim Choupo-Moting",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 15,
-    correctAnswer: "Thomas Muller",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 16,
-    correctAnswer: "Kingsley Coman",
+    correctAnswer: "b",
   },
   {
     correct_question_id: 17,
-    correctAnswer: "Mykonos",
+    correctAnswer: "a",
   },
   {
     correct_question_id: 18,
-    correctAnswer: "Matt Hancock",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 19,
-    correctAnswer: "Patrick van Aanholt",
+    correctAnswer: "c",
   },
   {
     correct_question_id: 20,
-    correctAnswer: "55",
+    correctAnswer: "c",
   },
 ];
