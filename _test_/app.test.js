@@ -223,4 +223,24 @@ describe("/api", () => {
         });
     });
   });
+  describe("/api/newq", () => {
+    it("200 GET returns all the key/value pairs for the whole quiz", () => {
+      return request(app)
+        .get("/api/newq")
+        .expect(200)
+        .then((res) => {
+          res.body.allQuiz.forEach((allQuiz) => {
+            expect(Object.keys(allQuiz)).toEqual([
+              "q_prompt",
+              "a",
+              "b",
+              "c",
+              "d",
+              "q_correctAnswer",
+              "q_id",
+            ]);
+          });
+        });
+    });
+  });
 });
