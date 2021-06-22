@@ -1,78 +1,61 @@
 module.exports = [
   {
-    // q_id: 1,
-    a: "Mikel Arteta",
+    q_id: 1,
+    a: "Mercury",
 
-    b: "Chris Wilder",
+    b: "Venus",
 
-    c: "Frank Lampard",
+    c: "Jupiter",
 
-    d: "Jurgen Klopp",
+    d: "Pluto",
 
-    q_prompt:
-      "Who was the first Premier League manager or player to test positive for coronavirus?",
+    q_prompt: "What is the closest planet?",
 
-    q_correctAnswer: "a",
+    q_correctAnswer: "Mercury",
   },
 
   {
-    // q_id: 2,
-    a: "Manuel Pellegrini",
+    q_id: 2,
+    a: "Monday",
 
-    b: "Nigel Pearson",
+    b: "Tuesday",
 
-    c: "Eddie Howe",
+    c: "Saturday",
 
-    d: "Chris Wilder",
+    d: "Sunday",
 
-    q_prompt: "Who was the first Premier League manager to be sacked in 2020?",
+    q_prompt: "What day of the week is it?",
 
-    q_correctAnswer: "b",
+    q_correctAnswer: "Sunday",
   },
 
   {
-    // q_id: 3,
-    a: "Quique Setien",
+    q_id: 3,
+    a: "4",
 
-    b: "Xavi Hernandez",
+    b: "8",
 
-    c: "Ernesto Valverde",
+    c: "9",
 
-    d: "Rai Garcia",
+    d: "6",
 
-    q_prompt: "Who preceded Ronald Koeman as Barcelona manager?",
+    q_prompt: "How many letters in the word SunShine",
 
-    q_correctAnswer: "a",
+    q_correctAnswer: "8",
   },
 
   {
-    // q_id: 4,
-    a: "2-1 loss to Newcastle United",
+    q_id: 4,
+    a: "red",
 
-    b: "1-1 drew vs Manchester City",
+    b: "green",
 
-    c: "1-1 drew vs Fulham",
+    c: "purple",
 
-    d: "5-1 loss to Crystal Palace",
+    d: "blue",
 
-    q_prompt:
-      "Slaven Bilic's last game for West Brom before he was sacked ended with which scoreline?",
+    q_prompt: "What color is the sky?",
 
-    q_correctAnswer: "b",
-  },
-  {
-    // q_id: 5,
-    a: "Stuttgart",
-
-    b: "Werder Bremen",
-
-    c: "Schalke",
-
-    d: "Borussia Dortmund",
-
-    q_prompt:
-      "Which Bundesliga side has already sacked two managers this season?",
-
-    q_correctAnswer: "c",
+    q_correctAnswer: "Blue",
   },
 ];

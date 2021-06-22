@@ -242,5 +242,23 @@ describe("/api", () => {
           });
         });
     });
+    it("200 GET returns all the data for for a single quiz", () => {
+      const expectedResponse = {
+        q_prompt: "What is the closest planet?",
+        a: "Mercury",
+        b: "Venus",
+        c: "Jupiter",
+        d: "Pluto",
+        q_correctAnswer: "Mercury",
+        q_id: 1,
+      };
+
+      return request(app)
+        .get("/api/newq/1")
+        .expect(200)
+        .then((res) => {
+          expect(res.body.question).toEqual(expectedResponse);
+        });
+    });
   });
 });
