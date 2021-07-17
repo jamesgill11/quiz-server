@@ -1,4 +1,3 @@
-const { updatedUser } = require("../controllers/register.controller");
 const db = require("../db/connection");
 
 exports.fetchUsers = () => {

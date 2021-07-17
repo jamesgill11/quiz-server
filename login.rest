@@ -1,0 +1,13 @@
+POST http://localhost:9090/api/login
+Content-Type: application/json
+
+
+{
+  "email": "j@outlook.com",
+  "password": "jjjjj"
+}
+
+###
+
+GET http://localhost:9090/api/newq
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTMxY2I3MjgtMjk2YS00N2UwLWEwZGEtYzQ2ZGZkNWRkYjdiIiwidXNlcl9lbWFpbCI6ImpAb3V0bG9vay5jb20iLCJ1c2VyX2ZpcnN0TmFtZSI6ImoiLCJ1c2VyX2xhc3ROYW1lIjoiMTUiLCJ1c2VyX3Njb3JlIjowLCJpYXQiOjE2MjY1NDQwMjQsImV4cCI6MTYyNjU0NDA1NH0.9SaOU7gSvqtsIDLAE9DNkzlBiosGgPLajerZ7Xrg0i4

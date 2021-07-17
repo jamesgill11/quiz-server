@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const {
   fetchUsers,
   sendSingleUser,
@@ -16,9 +17,10 @@ exports.getAllUsers = (req, res, next) => {
     });
 };
 
-exports.sendNewUser = (req, res, next) => {
+exports.sendNewUser = async (req, res, next) => {
   const { user_email, user_firstName, user_lastName, user_password } = req.body;
-  sendSingleUser(user_email, user_firstName, user_lastName, user_password)
+  const hashedPassword = await bcrypt.hash(req.body.user_password, 10);
+  sendSingleUser(user_email, user_firstName, user_lastName, hashedPassword)
     .then((user) => {
       res.status(201).send({ user });
     })
