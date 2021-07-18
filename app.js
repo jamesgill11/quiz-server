@@ -10,8 +10,9 @@ const {
   handle405Errors,
   handleServerErrors,
 } = require("./error_handlers/index");
+const corsOptions = { credentials: true, origin: process.env.URL || "*" };
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
