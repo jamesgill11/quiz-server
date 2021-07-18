@@ -15,7 +15,7 @@ const corsOptions = {
   origin: process.env.URL || "*",
 };
 
-app.use(cors(corsOptions));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(cookieParser());
 
