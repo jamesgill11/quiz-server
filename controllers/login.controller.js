@@ -24,8 +24,8 @@ exports.authUser = (req, res, next) => {
 
       res.cookie("refresh_token", tokens.refreshToken, {
         httpOnly: true,
-        sameSite: "none",
-        secure: true,
+        // sameSite: "none",
+        // secure: true,
       });
 
       res.send(tokens);
@@ -48,8 +48,8 @@ exports.refToken = (req, res, next) => {
         let tokens = jwtTokens(user[0]);
         res.cookie("refresh_token", tokens.refreshToken, {
           httpOnly: true,
-          sameSite: "none",
-          secure: true,
+          // sameSite: "none",
+          // secure: true,
         });
         res.send(tokens);
       })

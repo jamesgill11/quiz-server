@@ -22,7 +22,7 @@ const jwtTokens = ({
   const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: "14d",
   });
-  console.log(refreshToken);
+
   return { accessToken, refreshToken };
 };
 
