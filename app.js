@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api", cors(), apiRouter);
+app.use("/api", apiRouter);
 
 app.use("/", (req, res, next) => {
   res.send({ status: 200, msg: "Welcome to my Quiz" });
