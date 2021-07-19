@@ -18,7 +18,6 @@ app.use(cookieParser());
 app.use("/api", apiRouter);
 
 app.use("/", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
   res.send({ status: 200, msg: "Welcome to my Quiz" });
 });
 
