@@ -28,7 +28,7 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-
+      res.header("Access-Control-Allow-Origin", "*");
       res.send(tokens);
     })
     .catch((error) => {
@@ -52,6 +52,7 @@ exports.refToken = (req, res, next) => {
           sameSite: "none",
           secure: true,
         });
+        res.header("Access-Control-Allow-Origin", "*");
         res.send(tokens);
       })
       .catch((error) => {
