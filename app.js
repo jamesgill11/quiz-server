@@ -11,7 +11,7 @@ const {
   handleServerErrors,
 } = require("./error_handlers/index");
 
-app.options("*", cors());
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
