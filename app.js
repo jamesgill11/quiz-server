@@ -12,18 +12,10 @@ const {
 } = require("./error_handlers/index");
 
 // app.use(cors());
-app.all("*", function (req, res, next) {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  if ("OPTIONS" == req.method) {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
+
+  next();
 });
 app.use(express.json());
 app.use(cookieParser());
