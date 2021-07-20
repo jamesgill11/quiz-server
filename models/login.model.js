@@ -13,4 +13,13 @@ exports.sendAuth = (user_email, user_password) => {
     });
 };
 
-exports.authRefToken = (user_email) => {};
+exports.authRefToken = (user_email) => {
+  return db
+    .select("*")
+    .from("users")
+    .where("user_email", user_email)
+    .returning("*")
+    .then((res) => {
+      return res;
+    });
+};

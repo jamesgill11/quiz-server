@@ -10,4 +10,4 @@ Content-Type: application/json
 ###
 
 GET http://localhost:9090/api/newq
-Authorization: Bearer
+Authorization: Bearer 

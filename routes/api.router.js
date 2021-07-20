@@ -5,9 +5,8 @@ const registerRouter = require("./registers.router");
 const correctRouter = require("./correct.router");
 const newqRouter = require("./newq.router");
 const { loginRouter, rfTokenRouter } = require("./login.router");
-
-const { handle405Errors } = require("../error_handlers/index");
 const { authenticateToken } = require("../middleware/authorization");
+const { handle405Errors } = require("../error_handlers/index");
 
 // apiRouter.all("/", handle405Errors);
 
