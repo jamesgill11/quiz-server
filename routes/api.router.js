@@ -8,8 +8,6 @@ const { loginRouter, rfTokenRouter } = require("./login.router");
 const { authenticateToken } = require("../middleware/authorization");
 const { handle405Errors } = require("../error_handlers/index");
 
-// apiRouter.all("/", handle405Errors);
-
 apiRouter.use("/questions", questionsRouter);
 apiRouter.use("/answers", answersRouter);
 apiRouter.use("/register", registerRouter);
