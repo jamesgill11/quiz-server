@@ -5,7 +5,10 @@ module.exports = function () {
       "Access-Control-Allow-Methods",
       "PUT, GET, POST, DELETE, OPTIONS"
     );
-    res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
     next();
   };
 };
