@@ -19,14 +19,17 @@ const {
 //     credentials: true,
 //   })
 // );
-app.options("*", cors());
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api", apiRouter);
 
-app.use("/", (req, res, next) => {
+app.all("/", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   res.send({ status: 200, msg: "Welcome to my Quiz" });
+  next();
 });
 
 app.use("*", (req, res, next) => {
