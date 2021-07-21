@@ -14,7 +14,7 @@ const {
 
 app.use(
   cors({
-    origin: true,
+    origin: "*",
     methods: "GET,PUT,POST, PATCH, DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true,
