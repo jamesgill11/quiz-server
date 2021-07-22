@@ -28,7 +28,7 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-      res.setHeader("Access-Control-Allow-Origin", "*");
+
       res.send(tokens);
     })
     .catch((error) => {
