@@ -28,7 +28,7 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-
+      console.log(req, res);
       res.send(tokens);
     })
     .catch((error) => {
