@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
@@ -10,13 +10,17 @@ const {
   handle405Errors,
   handleServerErrors,
 } = require("./error_handlers/index");
-// const cors = require("./middleware/cors");
+const cors = require("./middleware/cors");
+const corsOptions = {
+  origin: "http://localhost:3000",
+};
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//   })
+// );
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", apiRouter);
