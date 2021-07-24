@@ -1,5 +1,5 @@
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
@@ -10,17 +10,9 @@ const {
   handle405Errors,
   handleServerErrors,
 } = require("./error_handlers/index");
-const cors = require("./middleware/cors");
+// const cors = require("./middleware/cors");
 
-app.use(
-  cors()
-  // cors({
-  //   origin: "http://localhost:3000",
-  //   methods: "GET,PUT,POST, PATCH, DELETE",
-  //   allowedHeaders: "Content-Type,Authorization",
-  //   credentials: true,
-  // })
-);
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
