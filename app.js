@@ -19,21 +19,14 @@ const {
 //     exposedHeaders: "*",
 //   })
 // );
-app.all("/api/*", function (req, res, next) {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
     "Access-Control-Allow-Headers",
-    "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With"
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-  return next();
-});
-
-app.all("/api/*", function (req, res, next) {
-  if (req.method.toLowerCase() !== "options") {
-    return next();
-  }
-  return res.send(204);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  next();
 });
 
 // app.use(crossOrigin());
