@@ -16,22 +16,9 @@ const axios = require("axios");
 // const corsOptions = { credentials: true, origin: process.env.URL || `*` };
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000",
   })
 );
-app.post(`:endpoint([\\/\\w\\.]*)`, (req, res, next) => {
-  let endpoint =
-    `https://my-quiz-server.herokuapp.com/api` + req.params.endpoint;
-
-  axios
-    .post(endpoint)
-    .then((res) => {
-      res.json(res.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
 
 app.use(express.json());
 app.use(cookieParser());
