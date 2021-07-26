@@ -28,8 +28,14 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-
-      return res.status(201).res.send(tokens);
+      res.setHeader("X-Frame-Options", "ALLOWALL");
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Methods", "POST, GET");
+      res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
+      res.status(201).res.send(tokens);
     })
     .catch((error) => {
       console.log(error);
