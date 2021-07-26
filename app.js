@@ -1,14 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.all("/*", function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const apiRouter = require("./routes/api.router");
@@ -19,14 +12,8 @@ const {
   handleServerErrors,
 } = require("./error_handlers/index");
 // const crossOrigin = require("./middleware/cors");
-
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: true,
-//     exposedHeaders: "*",
-//   })
-// );
+const corsOptions = { credentials: true, origin: process.env.URL || `*` };
+app.use(cors(corsOptions));
 
 // app.use(crossOrigin());
 app.use(express.json());
