@@ -22,14 +22,14 @@ exports.authUser = (req, res, next) => {
 
       // JWT
       let tokens = jwtTokens(user[0]);
-      console.log(tokens);
+
       res.cookie("refresh_token", tokens.refreshToken, {
         httpOnly: true,
         sameSite: "none",
         secure: true,
       });
 
-      res.send(tokens);
+      res.header("Access-Control-Allow-Origin", `*`).send(tokens);
     })
     .catch((error) => {
       console.log(error);
@@ -55,7 +55,7 @@ exports.refToken = (req, res, next) => {
           secure: true,
         });
 
-        res.send(tokens, { headers: { origin: `*` } });
+        res.send(tokens);
       }
     );
     // .catch((error) => {
