@@ -29,7 +29,7 @@ exports.authUser = (req, res, next) => {
         secure: true,
       });
 
-      res.header("Access-Control-Allow-Origin", `*`).send(tokens);
+      res.send({ tokens });
     })
     .catch((error) => {
       console.log(error);
