@@ -11,11 +11,24 @@ const {
   handle405Errors,
   handleServerErrors,
 } = require("./error_handlers/index");
+const axios = require("axios");
 // const crossOrigin = require("./middleware/cors");
-const corsOptions = { credentials: true, origin: process.env.URL || `*` };
-app.use(cors(corsOptions));
+// const corsOptions = { credentials: true, origin: process.env.URL || `*` };
+app.use(cors());
+app.post(`:endpoint([\\/\\w\\.]*)`, (req, res, next) => {
+  let endpoint =
+    `https://my-quiz-server.herokuapp.com/api` + req.params.endpoint;
 
-// app.use(crossOrigin());
+  axios
+    .post(endpoint)
+    .then((res) => {
+      res.json(res.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", apiRouter);

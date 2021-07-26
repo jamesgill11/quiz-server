@@ -28,10 +28,7 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-      res
-        .set("Content-type", "application/json")
-        .append("Access-Control-Allow-Origin", "*")
-        .send(tokens);
+      res.send(tokens);
     })
     .catch((error) => {
       console.log(error);
