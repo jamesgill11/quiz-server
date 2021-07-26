@@ -1,5 +1,5 @@
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
@@ -19,7 +19,7 @@ const {
 //     exposedHeaders: "*",
 //   })
 // );
-
+app.use(cors());
 // app.use(crossOrigin());
 app.use(express.json());
 app.use(cookieParser());
