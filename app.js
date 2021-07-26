@@ -14,7 +14,11 @@ const {
 const axios = require("axios");
 // const crossOrigin = require("./middleware/cors");
 // const corsOptions = { credentials: true, origin: process.env.URL || `*` };
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.post(`:endpoint([\\/\\w\\.]*)`, (req, res, next) => {
   let endpoint =
     `https://my-quiz-server.herokuapp.com/api` + req.params.endpoint;
