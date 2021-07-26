@@ -22,7 +22,7 @@ exports.authUser = (req, res, next) => {
 
       // JWT
       let tokens = jwtTokens(user[0]);
-
+      console.log(tokens);
       res.cookie("refresh_token", tokens.refreshToken, {
         httpOnly: true,
         sameSite: "none",
@@ -36,36 +36,40 @@ exports.authUser = (req, res, next) => {
     });
 };
 
-// exports.refToken = (req, res, next) => {
-//   const refreshToken = req.cookies.refresh_token;
-//   console.log(refreshToken);
-//   const { user_email } = req.body;
-//   // authRefToken(user_email).then((user) => {
-//   if (refreshToken === null)
-//     return res.status(401).send({ error: "Null refresh token" });
-//   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (error, user) => {
-//     if (error) return res.status(403).send({ error: error.message });
-//     let tokens = jwtTokens(user[0]);
-//     res.cookie("refresh_token", tokens.refreshToken, {
-//       httpOnly: true,
-//       sameSite: "none",
-//       secure: true,
-//     });
+exports.refToken = (req, res, next) => {
+  const refreshToken = req.cookies.refresh_token;
+  console.log(refreshToken);
+  const { user_email } = req.body;
+  authRefToken(user_email).then((user) => {
+    if (refreshToken === null)
+      return res.status(401).send({ error: "Null refresh token" });
+    jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET,
+      (error, user) => {
+        if (error) return res.status(403).send({ error: error.message });
+        let tokens = jwtTokens(user[0]);
+        res.cookie("refresh_token", tokens.refreshToken, {
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+        });
 
-//     res.send(tokens);
-//     // })
-//     // .catch((error) => {
-//     //   res.status(401).send({ error: error.message });
-//     // });
-//   });
-// };
+        res.send(tokens, { headers: { origin: `*` } });
+      }
+    );
+    // .catch((error) => {
+    //   res.status(401).send({ error: error.message });
+    // });
+  });
+};
 
-// exports.delRfToken = (req, res, next) => {
-//   res.clearCookie("refresh_token");
-//   return res
-//     .status(200)
-//     .send({ message: "refresh token deleted" })
-//     .catch((error) => {
-//       res.status(401).send({ error: error.message });
-//     });
-// };
+exports.delRfToken = (req, res, next) => {
+  res.clearCookie("refresh_token");
+  return res
+    .status(200)
+    .send({ message: "refresh token deleted" })
+    .catch((error) => {
+      res.status(401).send({ error: error.message });
+    });
+};
