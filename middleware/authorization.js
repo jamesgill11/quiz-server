@@ -13,6 +13,7 @@ const authenticateToken = (req, res, next) => {
       return res.status(403).send({ error: error.message });
     }
     req.user = user;
+
     next();
   });
 };
