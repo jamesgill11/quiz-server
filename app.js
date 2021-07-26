@@ -1,8 +1,17 @@
 const express = require("express");
+const app = express();
 const cors = require("cors");
+app.use(
+  cors({
+    allowedHeaders: ["sessionId", "Content-Type"],
+    exposedHeaders: ["sessionId"],
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+  })
+);
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
-const app = express();
 const apiRouter = require("./routes/api.router");
 const {
   customErrorHandler,
@@ -19,7 +28,7 @@ const {
 //     exposedHeaders: "*",
 //   })
 // );
-app.use(cors());
+
 // app.use(crossOrigin());
 app.use(express.json());
 app.use(cookieParser());
