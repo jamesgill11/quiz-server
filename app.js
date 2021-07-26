@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
@@ -12,13 +12,23 @@ const {
 } = require("./error_handlers/index");
 // const crossOrigin = require("./middleware/cors");
 
-app.use(
-  cors({
-    credentials: true,
-    origin: true,
-    exposedHeaders: "*",
-  })
-);
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: true,
+//     exposedHeaders: "*",
+//   })
+// );
+app.options("/*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, Content-Length, X-Requested-With"
+  );
+  res.sendStatus(200);
+  next();
+});
 
 // app.use(crossOrigin());
 app.use(express.json());
