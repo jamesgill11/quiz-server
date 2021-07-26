@@ -14,11 +14,12 @@ const {
 const axios = require("axios");
 // const crossOrigin = require("./middleware/cors");
 // const corsOptions = { credentials: true, origin: process.env.URL || `*` };
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+
+const allowOrigins = ["http://localhost:3000"];
+const options = {
+  origin: allowOrigins,
+};
+app.use(cors(options));
 
 app.use(express.json());
 app.use(cookieParser());
