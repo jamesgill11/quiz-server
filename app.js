@@ -19,15 +19,21 @@ const {
 //     exposedHeaders: "*",
 //   })
 // );
-app.use((req, res, next) => {
+app.all("/api/*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+    "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+  return next();
+});
+
+app.all("/api/*", function (req, res, next) {
+  if (req.method.toLowerCase() !== "options") {
+    return next();
+  }
+  return res.send(204);
 });
 
 // app.use(crossOrigin());
