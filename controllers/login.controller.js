@@ -29,7 +29,7 @@ exports.authUser = (req, res, next) => {
         secure: true,
       });
 
-      res.send(tokens);
+      return res.status(201).res.send(tokens);
     })
     .catch((error) => {
       console.log(error);

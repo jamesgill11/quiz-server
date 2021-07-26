@@ -12,8 +12,14 @@ const {
 } = require("./error_handlers/index");
 // const crossOrigin = require("./middleware/cors");
 
-app.use(cors());
-app.options("*", cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+    exposedHeaders: "*",
+  })
+);
+
 // app.use(crossOrigin());
 app.use(express.json());
 app.use(cookieParser());
