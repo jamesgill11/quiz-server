@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
+// const cors = require("cors");
 
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
@@ -11,12 +11,13 @@ const {
   handle405Errors,
   handleServerErrors,
 } = require("./error_handlers/index");
-const axios = require("axios");
-// const crossOrigin = require("./middleware/cors");
+
+const crossOrigin = require("./middleware/cors");
 const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
-app.use(cors(corsOptions));
+// app.use(cors());
 
+app.use(crossOrigin());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", apiRouter);
