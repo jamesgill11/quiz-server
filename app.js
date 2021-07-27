@@ -13,11 +13,15 @@ const {
 } = require("./error_handlers/index");
 
 const crossOrigin = require("./middleware/cors");
-const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
-// app.use(cors());
+//
 
-app.use(crossOrigin());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type"),
+    res.header("Access-Control-Allow-Methods", "GET, POST, DELETE");
+  next();
+});
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", apiRouter);
