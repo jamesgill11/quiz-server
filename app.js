@@ -16,13 +16,17 @@ const crossOrigin = require("./middleware/cors");
 
 //
 
-app.all("*", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
+app.use(function (req, res, next) {
+  res.setHeader(
     "Access-Control-Allow-Headers",
-    "Content-Type, Content-Length, Authorization, Accept,X-Requested-With"
-  ),
-    res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+    "X-Requested-With,content-type, Accept,Authorization,Origin"
+  );
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
 app.use(express.json());
