@@ -13,13 +13,9 @@ const {
 } = require("./error_handlers/index");
 const axios = require("axios");
 // const crossOrigin = require("./middleware/cors");
-// const corsOptions = { credentials: true, origin: process.env.URL || `*` };
+const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
-const allowOrigins = ["http://localhost:3000"];
-const options = {
-  origin: allowOrigins,
-};
-app.use(cors(options));
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
