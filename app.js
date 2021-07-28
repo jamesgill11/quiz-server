@@ -15,7 +15,7 @@ const {
 // const crossOrigin = require("./middleware/cors");
 
 //
-const corsOptions = { credentials: true, origin: "http://127.0.0.1:3000" };
+const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
