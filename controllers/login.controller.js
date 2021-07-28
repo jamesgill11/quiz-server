@@ -28,7 +28,7 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-      res.send(tokens);
+      res.send({ tokens });
     })
     .catch((error) => {
       console.log(error);
@@ -54,7 +54,7 @@ exports.refToken = (req, res, next) => {
           secure: true,
         });
 
-        res.send(tokens);
+        res.send({ tokens });
       }
     );
     // .catch((error) => {
