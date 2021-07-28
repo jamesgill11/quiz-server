@@ -26,6 +26,7 @@ const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 //   next();
 // });
 app.use(cors(corsOptions));
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cookieParser());
