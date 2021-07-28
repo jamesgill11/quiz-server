@@ -24,11 +24,12 @@ const crossOrigin = require("./middleware/cors");
 //   );
 //   next();
 // });
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//   })
+// );
+app.use(crossOrigin());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", apiRouter);
