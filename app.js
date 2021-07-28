@@ -32,6 +32,7 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Content-Type, Authorization, Content-Length, X-Requested-With, Accept"
   );
+  next();
 });
 
 app.use(express.json());
