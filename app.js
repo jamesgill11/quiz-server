@@ -17,16 +17,8 @@ const {
 //
 const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "*");
   // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   // res.header(
   //   "Access-Control-Allow-Headers",
@@ -34,7 +26,7 @@ app.use(function (req, res, next) {
   // );
   next();
 });
-
+// app.use(cors(corsOptions))
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", apiRouter);
