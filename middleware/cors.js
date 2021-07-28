@@ -1,9 +1,9 @@
 module.exports = function () {
   return function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,DELETE");
+    // res.header("Access-Control-Allow-Headers", "content-type");
+    // res.header("Access-Control-Allow-Credentials", "true");
+    // res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,DELETE");
     next();
     // response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
     // response.setHeader("Access-Control-Allow-Credentials", "true");
