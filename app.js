@@ -26,7 +26,7 @@ const {
 // });
 app.use(
   cors({
-    origin: false,
+    origin: "http://localhost:3000",
   })
 );
 
