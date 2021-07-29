@@ -18,7 +18,7 @@ const {
 const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
   res.header("Access-Control-Expose-Headers", "Content-Length");
