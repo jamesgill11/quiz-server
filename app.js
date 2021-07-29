@@ -19,9 +19,13 @@ const corsOptions = { credentials: true, origin: "http://localhost:3000" };
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "*");
-  next();
+  if (req.method === "OPTIONS") {
+    return res.send(200);
+  } else {
+    return next();
+  }
 });
 // app.use(cors(corsOptions))
 app.use(express.json());
