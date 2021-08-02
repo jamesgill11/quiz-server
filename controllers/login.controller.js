@@ -28,7 +28,7 @@ exports.authUser = (req, res, next) => {
         sameSite: "none",
         secure: true,
       });
-      res.send({ user: user[0], tokens });
+      res.send(tokens);
     })
     .catch((error) => {
       console.log(error);
