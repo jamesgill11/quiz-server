@@ -18,6 +18,8 @@ const jwtTokens = ({
   const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
     expiresIn: "30m",
   });
+  console.log(accessToken);
+  console.log(process.env.ACCESS_TOKEN_SECRET);
 
   const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {
     expiresIn: "14d",
