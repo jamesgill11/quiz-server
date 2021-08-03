@@ -12,7 +12,7 @@ apiRouter.use("/questions", questionsRouter);
 apiRouter.use("/answers", answersRouter);
 apiRouter.use("/register", registerRouter);
 apiRouter.use("/correct", correctRouter);
-apiRouter.use("/newq", authenticateToken, newqRouter);
+apiRouter.use("/newq", newqRouter);
 apiRouter.use("/login", loginRouter);
 apiRouter.use("/refresh_token", rfTokenRouter);
 

@@ -42,10 +42,8 @@ exports.refToken = (req, res, next) => {
   authRefToken(user_email).then((user) => {
     if (refreshToken === null)
       return res.status(401).send({ error: "Null refresh token" });
-    jwt.verify(
-      refreshToken,
-      process.env.REFRESH_TOKEN_SECRET,
-      (error, user) => {
+    jwt
+      .verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (error, user) => {
         if (error) return res.status(403).send({ error: error.message });
         let tokens = jwtTokens(user[0]);
         res.cookie("refresh_token", tokens.refreshToken, {
@@ -54,12 +52,11 @@ exports.refToken = (req, res, next) => {
           secure: true,
         });
 
-        res.send({ user: user[0], tokens });
-      }
-    );
-    // .catch((error) => {
-    //   res.status(401).send({ error: error.message });
-    // });
+        res.send(tokens);
+      })
+      .catch((error) => {
+        res.status(401).send({ error: error.message });
+      });
   });
 };
 
