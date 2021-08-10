@@ -6,6 +6,7 @@ const {
   removeUserByEmail,
   editUser,
 } = require("../models/register.model");
+const { jwtTokens } = require("../utlis/jwt-helper");
 
 exports.getAllUsers = (req, res, next) => {
   fetchUsers()
@@ -21,8 +22,26 @@ exports.sendNewUser = async (req, res, next) => {
   const { user_email, user_firstName, user_lastName, user_password } = req.body;
   const hashedPassword = await bcrypt.hash(req.body.user_password, 10);
   sendSingleUser(user_email, user_firstName, user_lastName, hashedPassword)
-    .then((user) => {
-      res.status(201).send({ user });
+    .then(async (user) => {
+      // Email Check
+      console.log(user);
+      if (user.length === 0)
+        return res.status(401).send({ error: "email is invalid!" });
+      // Password Check
+      const validPassword = await bcrypt.compare(user_password, hashedPassword);
+      if (!validPassword) {
+        return res.status(401).send({ error: "password is incorrect" });
+      }
+
+      // JWT
+      let tokens = jwtTokens(user);
+
+      res.cookie("refresh_token", tokens.refreshToken, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      });
+      res.send(tokens);
     })
     .catch((err) => {
       next(err);
